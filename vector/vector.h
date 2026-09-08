@@ -6,7 +6,9 @@ typedef struct
     int *data;
 } vector_t;
 
-vector_t* new_vector(int initial_capacity, float threshold);
+void vector_init(vector_t *vector, int initial_capacity, float threshold);
+
+void vector_destroy(vector_t *vector);
 
 void vector_resize(vector_t *vector);
 

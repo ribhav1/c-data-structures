@@ -3,16 +3,17 @@
 #include <stdlib.h>
 #include "vector.h"
 
-vector_t *new_vector(int initial_capacity, float threshold)
+void vector_init(vector_t *vector, int initial_capacity, float threshold)
 {
-    vector_t *ret_vector = malloc(sizeof(vector_t));
+    vector->top = 0;
+    vector->capacity = initial_capacity;
+    vector->threshold = threshold;
+    vector->data = malloc(initial_capacity * sizeof(int));
+}
 
-    ret_vector->top = 0;
-    ret_vector->capacity = initial_capacity;
-    ret_vector->threshold = threshold;
-    ret_vector->data = malloc(initial_capacity * sizeof(int));
+void vector_destroy(vector_t *vector)
+{
 
-    return ret_vector;
 }
 
 void vector_resize(vector_t *vector)
