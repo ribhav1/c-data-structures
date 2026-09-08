@@ -21,34 +21,59 @@ void vector_resize(vector_t *vector)
     vector->data = realloc(vector->data, vector->capacity * sizeof(int));
 }
 
-int vector_insert(vector_t *vector, int value)
+void vector_insert(vector_t *vector, int value, int *insertIdx)
 {
     if ((float)(vector->top + 1) / vector->capacity >= vector->threshold)
     {
         vector_resize(vector);
     }
 
+    *insertIdx = vector->top;
+
     vector->data[vector->top] = value;
     vector->top++;
-
-    return vector->top-1;
 }
 
-int vector_remove(vector_t *vector, int index)
+int vector_remove(vector_t *vector, int index, int *remove_val)
 {
     if (index < 0 || index >= vector->top)
     {
-        return -1;
+        return 0;
     }
 
-    int remove_val = vector->data[index];
+    int removed = vector->data[index];
     for (int i = index + 1; i < vector->top; i++)
     {
         vector->data[i - 1] = vector->data[i];
     }
     vector->top--;
 
-    return remove_val;
+    *remove_val = removed;
+    return 1;
+}
+
+int vector_get(vector_t *vector, int index, int *get_val)
+{
+    if (index < 0 || index >= vector->top)
+    {
+        return 0;
+    }
+
+    *get_val = vector->data[index];
+    return 1;
+}
+
+int vector_set(vector_t *vector, int index, int new_val, int *old_val)
+{
+    if (index < 0 || index >= vector->top)
+    {
+        return 0;
+    }
+
+    *old_val = vector->data[index];
+    vector->data[index] = new_val;
+
+    return 1;
 }
 
 void vector_print(vector_t *vector)
