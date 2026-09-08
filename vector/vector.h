@@ -12,7 +12,7 @@ void vector_destroy(vector_t *vector);
 
 void vector_resize(vector_t *vector);
 
-void vector_insert(vector_t *vector, int value, int *remove_idx);
+void vector_insert(vector_t *vector, int value);
 
 int vector_remove(vector_t *vector, int index, int *remove_val);
 

@@ -13,7 +13,7 @@ void vector_init(vector_t *vector, int initial_capacity, float threshold)
 
 void vector_destroy(vector_t *vector)
 {
-
+    free(vector->data);
 }
 
 void vector_resize(vector_t *vector)
@@ -22,14 +22,12 @@ void vector_resize(vector_t *vector)
     vector->data = realloc(vector->data, vector->capacity * sizeof(int));
 }
 
-void vector_insert(vector_t *vector, int value, int *insertIdx)
+void vector_insert(vector_t *vector, int value)
 {
     if ((float)(vector->top + 1) / vector->capacity >= vector->threshold)
     {
         vector_resize(vector);
     }
-
-    *insertIdx = vector->top;
 
     vector->data[vector->top] = value;
     vector->top++;

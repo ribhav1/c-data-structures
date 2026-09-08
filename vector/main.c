@@ -27,9 +27,8 @@ int main()
             int insert_val;
             fscanf(stdin, "%d", &insert_val);
             
-            int insert_idx;
-            vector_insert(&vector, insert_val, &insert_idx);
-            printf("inserted %d at index %d\n", insert_val, insert_idx);
+            vector_insert(&vector, insert_val);
+            printf("inserted %d to end\n", insert_val);
         }
         else if (strcmp("remove", cmd) == 0)
         {
@@ -84,6 +83,7 @@ int main()
             printf("not a valid command. try again\n");
         }
     }
+    vector_destroy(&vector);
 
     return 0;
 }
