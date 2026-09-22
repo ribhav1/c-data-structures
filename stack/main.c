@@ -11,7 +11,7 @@ int main()
     while (1)
     {
         printf("stack> ");
-        fscanf(stdin, "%s", cmd);
+        scanf("%s", cmd);
 
         if (strcmp("exit", cmd) == 0)
         {
@@ -25,7 +25,7 @@ int main()
         else if (strcmp("push", cmd) == 0)
         {
             int push_val;
-            fscanf(stdin, "%d", &push_val);
+            scanf("%d", &push_val);
             
             stack_push(&stack, push_val);
             printf("pushed %d to top\n", push_val);
@@ -57,7 +57,7 @@ int main()
         else if (strcmp("get", cmd) == 0)
         {
             int get_idx;
-            fscanf(stdin, "%d", &get_idx);
+            scanf("%d", &get_idx);
 
             int get_val;
             if (stack_get(&stack, get_idx, &get_val))

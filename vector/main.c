@@ -11,7 +11,7 @@ int main()
     while (1)
     {
         printf("vector> ");
-        fscanf(stdin, "%s", cmd);
+        scanf("%s", cmd);
 
         if (strcmp("exit", cmd) == 0)
         {
@@ -25,7 +25,7 @@ int main()
         else if (strcmp("insert", cmd) == 0)
         {
             int insert_val;
-            fscanf(stdin, "%d", &insert_val);
+            scanf("%d", &insert_val);
             
             vector_insert(&vector, insert_val);
             printf("inserted %d to end\n", insert_val);
@@ -33,7 +33,7 @@ int main()
         else if (strcmp("remove", cmd) == 0)
         {
             int remove_idx;
-            fscanf(stdin, "%d", &remove_idx);
+            scanf("%d", &remove_idx);
             
             int remove_val;
             if (vector_remove(&vector, remove_idx, &remove_val))
@@ -48,7 +48,7 @@ int main()
         else if (strcmp("get", cmd) == 0)
         {
             int get_idx;
-            fscanf(stdin, "%d", &get_idx);
+            scanf("%d", &get_idx);
 
             int get_val;
             if (vector_get(&vector, get_idx, &get_val))
@@ -63,10 +63,10 @@ int main()
         else if (strcmp("set", cmd) == 0)
         {
             int set_idx;
-            fscanf(stdin, "%d", &set_idx);
+            scanf("%d", &set_idx);
 
             int new_val;
-            fscanf(stdin, "%d", &new_val);
+            scanf("%d", &new_val);
 
             int old_val;
             if (vector_set(&vector, set_idx, new_val, &old_val))
